@@ -1,8 +1,9 @@
-# Notification of class change NIT GC
+# Reschedule Checker for NIT, GC.
 
 ## Abstract
-This software is for notifying class change of NIT,GC. Only supporting Linux System.
-Not available for Windows.
+This software tells you reschedule of class.
+Only supporting Linux. Not available for other systems, for example, Windows, Android, etc...  
+Twitter bot will be available. Comming soon.
 
 ## How to use
 First, you need to install xpdf on your linux system. In ubuntu,
@@ -10,16 +11,13 @@ First, you need to install xpdf on your linux system. In ubuntu,
 ```
 $ sudo apt-get install xpdf xpdf-japanese
 ```
-An error may occur when you install. Don't worry. Manual install is available. To obtain more detail, visit xpdf official web site.
-
-<br>
 
 Next, clone this project and run main.py
 
 ```
 $ python main.py
 ```
-Then, the class change list was displayed.
+Conglaturations! You will have reschedule list.
 
 
 ## Option
@@ -31,7 +29,7 @@ $ python main.py --filter [1E|2E|2C etc...]
 ```
 
 
-To avoid to download pdf, Use chache.
+Since second time, use chache.
 ```
 $ python main.py --chache true
 ```
