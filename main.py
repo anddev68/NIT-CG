@@ -26,36 +26,7 @@ def filter2(gakunen, map):
     return filter(lambda item:item['gakunen'] is gakunen, map) 
 
 def parse():
-    """
-    map ver2.0
-    map = [{
-            date: '',
-            weeks: '',
-            jigen: '',
-            gakka: '',
-            gakunen: '',
-            old:[{
-                teacher: '',
-                subject: '',
-            }],
-            new:[{
-                teacher: '',
-                subject: '',
-            }]
-        }]
-    """
-    """
-    map = [{
-            date: '',
-            weeks: '',
-            jigen: '',
-            gakka: '',
-            gakunen: '',
-            data: '',
-        }]
-    """
     map = []
-
     for line in open(LOCALTEXT, "r"):
         terms = line.split(" ")
         # discard headers
@@ -69,9 +40,9 @@ def parse():
             'jigen': terms[2],
             'gakka': terms[3],
             'gakunen': terms[4],
-            'data': str([terms[i] for i in range(5, len(terms))])
+            'old': terms[5],
+            'new': terms[7].replace("\n","") if 7 < len(terms) else "空きコマ"
         })
-
     return map
 
 
@@ -96,15 +67,7 @@ if __name__ == "__main__":
         print "No data."
     
     for item in data:
-        print item['date'] + item['weeks']
-
-    
-    #data = filter2('3', data)
-    #print data[0]['date']
-    
-    #print str(data)
-    
-
+        print item['date'] + item['weeks'] + item['jigen'] + " " + item['gakunen'] + item['gakka'] + "  " + item['old'] + " -> " + item['new']
 
 
 
