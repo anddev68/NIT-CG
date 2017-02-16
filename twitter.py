@@ -1,15 +1,18 @@
 # -*- coding: utf-8 -*-
 
-#import twitter
+import twitter
 import re
 
-auth = twitter.OAuth(consumer_key="",
-consumer_secret="",
-token="",
-token=secret="")
+import conf
+
+auth = twitter.OAuth(
+consumer_key=conf.consumer_key,
+consumer_secret=conf.consumer_secret,
+token=conf.token,
+token_secret=conf.token_secret)
 
 PATTERN = r'.*([1-5])([MEDCAYSK]).*'
-TWITTER_ID = ""
+TWITTER_ID = conf.twitter_id
 
 t = twitter.Twitter(auth=auth)
 t_userstream = twitter.TwitterStream(auth=auth,domain='userstream.twitter.com')
