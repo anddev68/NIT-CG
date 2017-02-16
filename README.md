@@ -13,10 +13,10 @@ First, you need to install xpdf on your linux system. In ubuntu,
 $ sudo apt-get install xpdf xpdf-japanese
 ```
 
-Next, clone this project and run main.py
+Next, clone this project and run core.py
 
 ```
-$ python main.py
+$ python core.py
 ```
 Conglaturations! You will have reschedule list.
 
@@ -26,13 +26,13 @@ Conglaturations! You will have reschedule list.
 Filter with gakunen and gakka.
 
 ```
-$ python main.py --filter [1E|2E|2C etc...]
+$ python core.py --filter [1E|2E|2C etc...]
 ```
 
 
 Since second time, use chache.
 ```
-$ python main.py --chache true
+$ python core.py --chache true
 ```
 
 
