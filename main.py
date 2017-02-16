@@ -4,6 +4,8 @@ import sys
 import urllib
 import subprocess
 import argparse
+import datetime
+
 
 # Constants
 URL = "http://www.gifu-nct.ac.jp/gakka/keijiyou/keijiyou.pdf"
@@ -19,11 +21,19 @@ def pre_parse():
     let = subprocess.check_call( cmd.split(" ") )
     return let
 
+def get_date():
+    today = datetime.date.today()
+    return str(today.monnth+1) + "月" + str(today.day) + "日"
+
+
 def filter1(gakunen, gakka, map):
     return filter(lambda item:item['gakka'] is gakka and item['gakunen'] is gakunen, map) 
 
 def filter2(gakunen, map):
     return filter(lambda item:item['gakunen'] is gakunen, map) 
+
+def filter_today(map):
+    return filter(lambda item:item['date'] is get_date(), map) 
 
 def parse():
     map = []
@@ -51,6 +61,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--cache',help='Using cache, not download original pdf')
     parser.add_argument('--filter',help='[1E|2E|2C etc...]')
+    parser.add_argument('--date', help='today')
     args = parser.parse_args()
     
     # execute
@@ -63,6 +74,10 @@ if __name__ == "__main__":
     if args.filter is not None:
         data = filter1(args.filter[0], args.filter[1], data)
     
+    if args.date is "today":
+        date = filter_today(map)
+
+    # print
     if len(data) is 0:
         print "No data."
     
