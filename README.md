@@ -4,6 +4,7 @@
 This software tells you reschedule of class.
 Only supporting Linux. Not available for other systems, for example, Windows, Android, etc...  
 Twitter bot will be available. Comming soon.
+<font color="red">Use Python 3.x.</font>
 
 ## How to use
 First, you need to install xpdf on your linux system. In ubuntu,
